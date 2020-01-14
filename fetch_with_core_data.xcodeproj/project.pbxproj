@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5185F7E23CD230100CE7556 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5185F7C23CD230100CE7556 /* Reading.swift */; };
+		A5185F7F23CD230100CE7556 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5185F7D23CD230100CE7556 /* Sensor.swift */; };
 		A58D079323CD222A00404AD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58D079223CD222A00404AD6 /* AppDelegate.swift */; };
 		A58D079523CD222A00404AD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58D079423CD222A00404AD6 /* SceneDelegate.swift */; };
 		A58D079723CD222A00404AD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58D079623CD222A00404AD6 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5185F7C23CD230100CE7556 /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
+		A5185F7D23CD230100CE7556 /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		A58D078F23CD222A00404AD6 /* fetch_with_core_data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fetch_with_core_data.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58D079223CD222A00404AD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A58D079423CD222A00404AD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		A58D079123CD222A00404AD6 /* fetch_with_core_data */ = {
 			isa = PBXGroup;
 			children = (
+				A5185F7C23CD230100CE7556 /* Reading.swift */,
+				A5185F7D23CD230100CE7556 /* Sensor.swift */,
 				A58D079223CD222A00404AD6 /* AppDelegate.swift */,
 				A58D079423CD222A00404AD6 /* SceneDelegate.swift */,
 				A58D079623CD222A00404AD6 /* ViewController.swift */,
@@ -142,8 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A58D079723CD222A00404AD6 /* ViewController.swift in Sources */,
+				A5185F7F23CD230100CE7556 /* Sensor.swift in Sources */,
 				A58D079D23CD222A00404AD6 /* fetch_with_core_data.xcdatamodeld in Sources */,
 				A58D079323CD222A00404AD6 /* AppDelegate.swift in Sources */,
+				A5185F7E23CD230100CE7556 /* Reading.swift in Sources */,
 				A58D079523CD222A00404AD6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +298,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = fetch_with_core_data/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,6 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = fetch_with_core_data/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,24 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="fetch_with_core_data" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MtH-IU-hxQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-Ad-LW5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULW-BH-Ykv">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="111"/>
+                                                <state key="normal" title="Archiving generate"/>
+                                                <connections>
+                                                    <action selector="onArchivingGenerateButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cdK-mh-09n"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdS-ww-cik">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="111"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CnO-tj-7h8">
+                                        <rect key="frame" x="0.0" y="111" width="375" height="111.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy1-zP-pM0">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="111.5"/>
+                                                <state key="normal" title="Archiving"/>
+                                                <connections>
+                                                    <action selector="onArchivingButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="osh-a6-nFO"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDP-5U-hZR">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="111.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="byg-ct-Fye">
+                                        <rect key="frame" x="0.0" y="222.5" width="375" height="111"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFT-t1-46Q">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="111"/>
+                                                <state key="normal" title="SQLite generate"/>
+                                                <connections>
+                                                    <action selector="onSQLiteGenerateButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c7S-OV-C2l"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXc-Da-7KE">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="111"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CAQ-5l-uyC">
+                                        <rect key="frame" x="0.0" y="333.5" width="375" height="111"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2f-JK-3nh">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="111"/>
+                                                <state key="normal" title="SQLite"/>
+                                                <connections>
+                                                    <action selector="onSQLiteButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oFJ-JP-9by"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaA-nh-vDR">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="111"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Bbc-tv-F4H">
+                                        <rect key="frame" x="0.0" y="444.5" width="375" height="111.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2i-Df-q6M">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="111.5"/>
+                                                <state key="normal" title="Core generate"/>
+                                                <connections>
+                                                    <action selector="onCoreGenerateButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JPq-85-E6k"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="It5-qp-CU8">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="111.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="f5L-xm-Ptb">
+                                        <rect key="frame" x="0.0" y="556" width="375" height="111"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRR-0N-lvx">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="111"/>
+                                                <state key="normal" title="Core"/>
+                                                <connections>
+                                                    <action selector="onCoreButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Np5-YS-TRT"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKh-Go-PhG">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="111"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MtH-IU-hxQ" secondAttribute="trailing" id="O3w-YT-9hF"/>
+                            <constraint firstItem="MtH-IU-hxQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Q9K-S0-mBm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MtH-IU-hxQ" secondAttribute="bottom" id="Stz-JR-g8x"/>
+                            <constraint firstItem="MtH-IU-hxQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rqZ-Mi-XFq"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="archivingGenerateResult" destination="mdS-ww-cik" id="spW-NY-lrQ"/>
+                        <outlet property="archivingResult" destination="GDP-5U-hZR" id="ni3-uh-EYc"/>
+                        <outlet property="coreGenerateResult" destination="It5-qp-CU8" id="LlQ-Ya-U9v"/>
+                        <outlet property="coreResult" destination="JKh-Go-PhG" id="oLE-y8-UgJ"/>
+                        <outlet property="sqliteGenerateResult" destination="KXc-Da-7KE" id="cch-Mi-fxu"/>
+                        <outlet property="sqliteResult" destination="EaA-nh-vDR" id="dO7-11-nak"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="56.799999999999997" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>
