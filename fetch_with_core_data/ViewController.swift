@@ -84,10 +84,79 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onSQLiteGenerateButtonClicked(_ sender: Any) {
+        let startTime = Date()
+        
+        let sensors = sensorsSetup();
+        let readings = readingsSetup();
+        let db = openSQLite()!
+        var query = "";
+        sqlite3_exec(db, "BEGIN TRANSACTION", nil, nil, nil);
+        query += "DROP TABLE IF EXISTS readings; "
+        query += "DROP TABLE IF EXISTS sensors; "
+        query += "CREATE TABLE sensors (name VARCHAR(3) PRIMARY KEY, desc VARCHAR(20)); "
+        query += "CREATE TABLE readings (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp NUMERIC, value REAL, sensor VARCHAR(3), FOREIGN KEY(sensor) REFERENCES sensors(name)); "
+        for sensor in sensors {
+            query += "INSERT INTO sensors (name, desc) values ('\(sensor.name)', '\(sensor.desc)'); "
+        }
+        for reading in readings {
+            query += "INSERT INTO readings (timestamp, value, sensor) values (\(reading.date.timeIntervalSince1970), \(reading.value), '\(reading.sensorName)'); "
+        }
+        sqlite3_exec(db, query, nil, nil, nil)
+        sqlite3_exec(db, "COMMIT TRANSACTION", nil, nil, nil);
+        
+        let finishTime = Date()
+        let measuredTime = finishTime.timeIntervalSince(startTime)
+        sqliteGenerateResult.text = String(measuredTime)
     }
     
     @IBAction func onSQLiteButtonClicked(_ sender: Any) {
-        sqliteResult.text = "sqlite clicked";
+        var startTime: Date
+        var finishTime: Date
+        var measuredTime: Double
+        var totalTime: Double = 0
+        let db = openSQLite()!
+        
+        startTime = Date()
+        let maxMinQuery = "SELECT max(timestamp) as max, min(timestamp) as min, avg(value) as avg from readings;"
+        sqlite3_exec(db, maxMinQuery, {_, _, values, _ in
+            let max = String(cString: values![0]!)
+            let min = String(cString: values![1]!)
+            print("SQLite max date: \(Date(timeIntervalSince1970: Double(max)!))")
+            print("SQLite min date: \(Date(timeIntervalSince1970: Double(min)!))")
+            return 0
+         }, nil, nil)
+        finishTime = Date()
+        measuredTime = finishTime.timeIntervalSince(startTime)
+        totalTime += measuredTime
+        print("SQLite query1: \(measuredTime) \n")
+        
+        startTime = Date()
+        let avgQuery = "SELECT avg(value) as avg from readings;"
+        sqlite3_exec(db, avgQuery, {_, _, values, _ in
+            let avg = String(cString: values![0]!)
+            print("SQLige average value: \(avg)")
+            return 0
+         }, nil, nil)
+        finishTime = Date()
+        measuredTime = finishTime.timeIntervalSince(startTime)
+        totalTime += measuredTime
+        print("SQLite query2: \(measuredTime) \n")
+        
+        startTime = Date()
+        let selectSensorsQuery = "SELECT sensor, count(*) as readings, avg(value) as avg from readings group by sensor;"
+        sqlite3_exec(db, selectSensorsQuery, {_, _, values, _ in
+            let sensor = String(cString: values![0]!)
+            let readings = String(cString: values![1]!)
+            let avg = String(cString: values![2]!)
+            print("Archiving sensor \(sensor) - readings: \(readings), average \(avg)")
+            return 0
+        }, nil, nil)
+        finishTime = Date()
+        measuredTime = finishTime.timeIntervalSince(startTime)
+        totalTime += measuredTime
+        print("SQLite query3: \(measuredTime) \n")
+
+        sqliteResult.text = String(totalTime);
     }
     
     @IBAction func onCoreGenerateButtonClicked(_ sender: Any) {
@@ -171,7 +240,6 @@ class ViewController: UIViewController {
         let edCount = NSExpressionDescription()
         edCount.expression = eCount
         edCount.name = "count"
-//        edCount.expressionResultType = .integer16AttributeType
         let eSensorAvg = NSExpression(format: "@avg.value")
         let edSensorAvg = NSExpressionDescription()
         edSensorAvg.expression = eSensorAvg
@@ -231,6 +299,18 @@ class ViewController: UIViewController {
             try context.save()
         } catch {
             print ("There was an error")
+        }
+    }
+    
+    func openSQLite() -> OpaquePointer? {
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let dbFilePath = NSURL(fileURLWithPath: docDir).appendingPathComponent("demo.db")?.path
+        var db: OpaquePointer? = nil
+        if sqlite3_open(dbFilePath, &db) == SQLITE_OK {
+            return db;
+        } else {
+            print("error connect to sqlite db")
+            return nil;
         }
     }
 }

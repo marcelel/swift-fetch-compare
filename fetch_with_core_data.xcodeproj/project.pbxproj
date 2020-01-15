@@ -21,6 +21,7 @@
 /* Begin PBXFileReference section */
 		A5185F7C23CD230100CE7556 /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		A5185F7D23CD230100CE7556 /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
+		A5185F8023CE794B00CE7556 /* fetch_with_core_data-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fetch_with_core_data-Bridging-Header.h"; sourceTree = "<group>"; };
 		A58D078F23CD222A00404AD6 /* fetch_with_core_data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fetch_with_core_data.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58D079223CD222A00404AD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A58D079423CD222A00404AD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		A58D078623CD222A00404AD6 = {
 			isa = PBXGroup;
 			children = (
+				A5185F8023CE794B00CE7556 /* fetch_with_core_data-Bridging-Header.h */,
 				A58D079123CD222A00404AD6 /* fetch_with_core_data */,
 				A58D079023CD222A00404AD6 /* Products */,
 			);
@@ -305,6 +307,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marcellekston.la2.fetch-with-core-data";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fetch_with_core_data-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -323,6 +326,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marcellekston.la2.fetch-with-core-data";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fetch_with_core_data-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

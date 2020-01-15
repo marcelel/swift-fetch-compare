@@ -10,8 +10,8 @@ class Sensor: NSObject, NSCoding {
         static let desc = "desc";
     }
     
-    var name: String?
-    var desc: String?
+    var name: String
+    var desc: String
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.name, forKey: Keys.name)
@@ -19,8 +19,8 @@ class Sensor: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.name = aDecoder.decodeObject(forKey: Keys.name) as? String
-        self.desc = aDecoder.decodeObject(forKey: Keys.desc) as? String
+        self.name = aDecoder.decodeObject(forKey: Keys.name) as! String
+        self.desc = aDecoder.decodeObject(forKey: Keys.desc) as! String
     }
     
     init(name: String, description: String) {
